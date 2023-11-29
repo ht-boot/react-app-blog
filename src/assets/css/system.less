@@ -1,0 +1,17 @@
+// 随机颜色
+@randomColor255: `Math.ceil(Math.random() * 255) `;
+
+// 头部高度
+@headHeight: 50px;
+
+// 尾部高度
+@footerHeight: 60px;
+
+// 遍历
+.loop(@i) when (@i > 0) {
+  .loop((@i - 1));
+  p:nth-child(@{i}) {
+    padding: 0 12px;
+    color: rgb(@randomColor255, @randomColor255, @randomColor255);
+  }
+}

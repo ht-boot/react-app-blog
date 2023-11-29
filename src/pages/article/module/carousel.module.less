@@ -1,0 +1,30 @@
+.container {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 4px 12px;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+  transition: all 0.2s ease-in-out;
+
+  .icon {
+    font-size: 22px;
+    flex: 1;
+  }
+  .banner {
+    flex: 8;
+    height: 30px;
+    line-height: 2rem;
+    overflow: hidden;
+    font-weight: bold;
+    text-align: center;
+  }
+  .placeholder {
+    flex: 1;
+  }
+  &:hover {
+    box-shadow: 0 0 8px var(--banner-hover-text-color);
+    color: var(--banner-hover-text-color);
+    border: 1px solid var(--banner-hover-text-color);
+  }
+}

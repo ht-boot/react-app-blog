@@ -1,0 +1,150 @@
+.container {
+  margin-top: 20px;
+  .recommend_box {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    .recommend_one,
+    .recommend_two {
+      width: calc(50% - 10px);
+      width: 100%;
+      height: 320px;
+      border-radius: 10px;
+      flex-shrink: 0;
+      border: 1px solid var(--border-color);
+    }
+    .recommend_one {
+      overflow: hidden;
+      position: relative;
+
+      .description {
+        box-sizing: border-box;
+        padding: 8px 12px;
+        white-space: nowrap;
+        .translate {
+          margin-top: 12px;
+          font-size: 14px;
+          font-weight: bold;
+        }
+      }
+      .hobby {
+        img {
+          width: 88px;
+          transform: rotate(30deg);
+          animation: game 3s infinite linear;
+          background-color: var(--bg--color);
+
+          border-radius: 50%;
+          box-shadow: inset 4px 7px 10px rgba(0, 0, 0, 0.08),
+            12.5px 19.9px 10px rgba(0, 0, 0, 0.02),
+            30.1px 47.9px 24.1px rgba(0, 0, 0, 0.02),
+            100px 159px 80px rgba(0, 0, 0, 0.02);
+        }
+        img:nth-child(2) {
+          animation: MX432_AV3 5s infinite linear;
+        }
+        img:nth-child(3) {
+          object-fit: cover;
+          box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.08),
+            12.5px 19.9px 10px rgba(0, 0, 0, 0.02),
+            30.1px 47.9px 24.1px rgba(0, 0, 0, 0.02),
+            100px 159px 80px rgba(0, 0, 0, 0.02);
+          animation: switch 4s infinite linear;
+        }
+      }
+      .display_skill {
+        position: relative;
+        min-width: 800px;
+
+        margin-top: 30px;
+
+        .skill_box {
+          display: flex;
+          position: absolute;
+          left: 0px;
+          li.item {
+            margin: 2px 4px;
+            border-radius: 15px;
+            background-color: #fff;
+            width: 80px;
+            img {
+              width: 80px;
+            }
+          }
+        }
+      }
+    }
+    .recommend_two {
+      padding: 12px;
+      box-sizing: border-box;
+      .banner {
+      }
+    }
+  }
+
+  // 动画
+  @keyframes game {
+    0% {
+      transform: translate(0);
+    }
+
+    30% {
+      transform: translate(5px, 10px);
+    }
+
+    50% {
+      transform: translate(10px, 20px);
+    }
+
+    80% {
+      transform: translate(20px, 0px);
+    }
+
+    100% {
+      transform: translate(0);
+    }
+  }
+  @keyframes MX432_AV3 {
+    0% {
+      transform: translate(10px, 20px);
+    }
+
+    30% {
+      transform: translate(15px, 10px);
+    }
+
+    50% {
+      transform: translate(25px, 30px);
+    }
+
+    80% {
+      transform: translate(10px, 0px);
+    }
+
+    100% {
+      transform: translate(10px, 20px);
+    }
+  }
+  @keyframes switch {
+    0% {
+      transform: translate(30px, 30px);
+    }
+
+    30% {
+      transform: translate(15px, 10px);
+    }
+
+    50% {
+      transform: translate(20px, 40px);
+    }
+
+    80% {
+      transform: translate(20px, 25px);
+    }
+
+    100% {
+      transform: translate(30px, 30px);
+    }
+  }
+}
