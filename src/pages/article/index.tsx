@@ -1,40 +1,44 @@
 import React, { useRef, useEffect } from "react";
 import CarouselComponent from "./module/carousel";
 import styles from "./index.module.less";
+import { Button } from "antd";
+// Import Swiper React components
+import { Swiper, SwiperSlide } from "swiper/react";
+import { EffectCards } from "swiper/modules";
 
 const skillList = [
   {
-    src: "/src/assets/image/vue.png",
+    src: "/image/vue.png",
   },
   {
-    src: "/src/assets/image/react.png",
+    src: "/image/react.png",
   },
   {
-    src: "/src/assets/image/html5.png",
+    src: "/image/html5.png",
   },
   {
-    src: "/src/assets/image/javascript.png",
+    src: "/image/javascript.png",
   },
   {
-    src: "/src/assets/image/typescript.png",
+    src: "/image/typescript.png",
   },
   {
-    src: "/src/assets/image/python.png",
+    src: "/image/python.png",
   },
   {
-    src: "/src/assets/image/nodejs.png",
+    src: "/image/nodejs.png",
   },
   {
-    src: "/src/assets/image/vscode.png",
+    src: "/image/vscode.png",
   },
   {
-    src: "/src/assets/image/docker.png",
+    src: "/image/docker.png",
   },
   {
-    src: "/src/assets/image/git.png",
+    src: "/image/git.png",
   },
   {
-    src: "/src/assets/image/gitlab.png",
+    src: "/image/gitlab.png",
   },
 ];
 
@@ -72,28 +76,17 @@ const ArticleComponent: React.FC = () => {
         <div className={styles.recommend_box}>
           <div className={styles.recommend_one}>
             <div className={styles.description}>
-              <h1>欢迎来到我的小破站。</h1>
-              <p className={styles.see_more}>
-                Welcome to my little tattered website。
+              <h1>日月既往，不可复追。</h1>
+              <p className={styles.translate}>
+                Welcome to my little tattered website。😁😍😛😄
               </p>
             </div>
 
-            <div className={styles.hobby}>
-              <img
-                className={styles.game}
-                src="/src/assets/image/link.png"
-                alt=""
-              />
-              <img
-                className={styles.MX432_AV3}
-                src="/src/assets/image/pink.png"
-                alt=""
-              />
-              <img
-                className={styles.MX432_AV3}
-                src="/src/assets/image/pip.png"
-                alt=""
-              />
+            <div className={styles.pulse}>
+              <img className={styles.item} src="/image/link.png" alt="" />
+              <img className={styles.item} src="/image/pink.png" alt="" />
+              <img className={styles.item} src="/image/pip.png" alt="" />
+              <img className={styles.item} src="/image/ash.png" alt="" />
             </div>
             <div className={styles.display_skill}>
               <ul ref={ulRef} className={styles.skill_box}>
@@ -108,8 +101,66 @@ const ArticleComponent: React.FC = () => {
             </div>
           </div>
           <div className={styles.recommend_two}>
-            <h1>我的图库</h1>
-            <div className={styles.banner}></div>
+            <div className={styles.two_text}>
+              <h2>AI 图册。</h2>
+              <p className={styles.hobby}>图片分享。</p>
+              <Button
+                type="primary"
+                style={{ background: "#005cbb" }}
+                className={styles.btn}
+              >
+                Get Started
+              </Button>
+            </div>
+            <div className={styles.banner}>
+              <Swiper
+                effect={"cards"}
+                grabCursor={true}
+                modules={[EffectCards]}
+                className={styles.my_swiper}
+              >
+                <SwiperSlide
+                  style={{
+                    borderRadius: "10px",
+                    overflow: "hidden",
+                  }}
+                >
+                  <img src="/image/girl_5.png" alt="" />
+                </SwiperSlide>
+                <SwiperSlide
+                  style={{
+                    borderRadius: "10px",
+                    overflow: "hidden",
+                  }}
+                >
+                  <img src="/image/girl_2.png" alt="" />
+                </SwiperSlide>
+                <SwiperSlide
+                  style={{
+                    borderRadius: "10px",
+                    overflow: "hidden",
+                  }}
+                >
+                  <img src="/image/girl_3.png" alt="" />
+                </SwiperSlide>
+                <SwiperSlide
+                  style={{
+                    borderRadius: "10px",
+                    overflow: "hidden",
+                  }}
+                >
+                  <img src="/image/girl_4.png" alt="" />
+                </SwiperSlide>
+                <SwiperSlide
+                  style={{
+                    borderRadius: "10px",
+                    overflow: "hidden",
+                  }}
+                >
+                  <img src="/image/girl_1.png" alt="" />
+                </SwiperSlide>
+              </Swiper>
+            </div>
           </div>
         </div>
       </div>

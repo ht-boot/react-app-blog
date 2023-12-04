@@ -222,7 +222,7 @@ const PlayerComponent = memo(() => {
                 : `${styles.player_cover}`
             }
           >
-            <img src="/src/assets/image/01.jpg" alt="" />
+            <img src="/image/01.jpg" alt="" />
           </div>
           {/* 播放控制器 */}
           <div className={styles.player_controls}>

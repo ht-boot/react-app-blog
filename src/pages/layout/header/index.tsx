@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import ThemeSwitch from "@/components/theme";
 import styles from "./index.module.less";
 
 const menus = [
@@ -35,6 +36,7 @@ const LayoutHeader = () => {
           );
         })}
       </nav>
+      <ThemeSwitch />
     </div>
   );
 };

@@ -5,7 +5,7 @@
 
 const createAudio = () => {
   const audio = new Audio();
-  audio.src = "/src/assets/music/01.mp3";
+  audio.src = "/music/01.mp3";
   audio.loop = true;
   return audio;
 };

@@ -37,7 +37,7 @@ const Home: React.FC = () => {
         <div className={styles.content}>
           <div className={styles.container}>
             <div className={styles.header}>
-              <img src="/src/assets/image/link.png" alt="header" />
+              <img src="/image/link.png" alt="header" />
             </div>
             <div className={styles.info}>
               <h1 className="name">胡 涛 · Hu Tao </h1>

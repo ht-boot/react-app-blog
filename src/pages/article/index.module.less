@@ -1,3 +1,19 @@
+// less 混入
+.my-mixin(@bg) {
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-color);
+    filter: blur(5px);
+    background: url(@bg) no-repeat;
+    background-size: cover;
+  }
+}
+
 .container {
   margin-top: 20px;
   .recommend_box {
@@ -7,16 +23,16 @@
     justify-content: space-between;
     .recommend_one,
     .recommend_two {
-      width: calc(50% - 10px);
-      width: 100%;
+      width: calc(100% / 2 - 10px);
       height: 320px;
       border-radius: 10px;
       flex-shrink: 0;
       border: 1px solid var(--border-color);
     }
     .recommend_one {
-      overflow: hidden;
       position: relative;
+      overflow: hidden;
+      user-select: none;
 
       .description {
         box-sizing: border-box;
@@ -28,37 +44,34 @@
           font-weight: bold;
         }
       }
-      .hobby {
+      .pulse {
+        padding: 12px 0;
+        box-sizing: border-box;
         img {
           width: 88px;
-          transform: rotate(30deg);
-          animation: game 3s infinite linear;
-          background-color: var(--bg--color);
-
+          animation: transform_move_1 3s infinite linear;
+          object-fit: cover;
           border-radius: 50%;
           box-shadow: inset 4px 7px 10px rgba(0, 0, 0, 0.08),
             12.5px 19.9px 10px rgba(0, 0, 0, 0.02),
             30.1px 47.9px 24.1px rgba(0, 0, 0, 0.02),
             100px 159px 80px rgba(0, 0, 0, 0.02);
         }
+
         img:nth-child(2) {
-          animation: MX432_AV3 5s infinite linear;
+          animation: transform_move_2 3s infinite linear;
         }
+
         img:nth-child(3) {
-          object-fit: cover;
-          box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.08),
-            12.5px 19.9px 10px rgba(0, 0, 0, 0.02),
-            30.1px 47.9px 24.1px rgba(0, 0, 0, 0.02),
-            100px 159px 80px rgba(0, 0, 0, 0.02);
-          animation: switch 4s infinite linear;
+          animation: transform_move_3 3s infinite linear;
+        }
+        img:nth-child(4) {
+          animation: transform_move_4 3s infinite linear;
         }
       }
       .display_skill {
         position: relative;
-        min-width: 800px;
-
-        margin-top: 30px;
-
+        margin-top: 15px;
         .skill_box {
           display: flex;
           position: absolute;
@@ -74,77 +87,138 @@
           }
         }
       }
+      .my-mixin("/image/hello-dddoodle-3.svg");
     }
     .recommend_two {
+      position: relative;
+      display: flex;
       padding: 12px;
       box-sizing: border-box;
-      .banner {
+      user-select: none;
+      background-size: cover;
+      background-position: center;
+      overflow: hidden;
+      background: url(/image/hello-dddoodle-3.svg) no-repeat center;
+      background-size: cover;
+      .two_text {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-start;
+        margin-right: 12px;
+        .hobby {
+          font-size: 14px;
+        }
+        .btn {
+          font-weight: bold;
+          margin-top: 10px;
+        }
       }
+      .banner {
+        height: 100%;
+        width: 480px;
+        border-radius: 10px;
+        .my_swiper {
+          height: 100%;
+          width: 100%;
+          border-radius: 10px;
+          img {
+            width: 100%;
+          }
+        }
+      }
+      // .my-mixin("/src/assets/image/hello-dddoodle-3.svg");
     }
   }
+}
 
-  // 动画
-  @keyframes game {
-    0% {
-      transform: translate(0);
-    }
-
-    30% {
-      transform: translate(5px, 10px);
-    }
-
-    50% {
-      transform: translate(10px, 20px);
-    }
-
-    80% {
-      transform: translate(20px, 0px);
-    }
-
-    100% {
-      transform: translate(0);
-    }
+// 动画
+@keyframes transform_move_1 {
+  0% {
+    transform: translate(0);
   }
-  @keyframes MX432_AV3 {
-    0% {
-      transform: translate(10px, 20px);
-    }
 
-    30% {
-      transform: translate(15px, 10px);
-    }
-
-    50% {
-      transform: translate(25px, 30px);
-    }
-
-    80% {
-      transform: translate(10px, 0px);
-    }
-
-    100% {
-      transform: translate(10px, 20px);
-    }
+  30% {
+    transform: translate(5px, 8px);
   }
-  @keyframes switch {
-    0% {
-      transform: translate(30px, 30px);
-    }
 
-    30% {
-      transform: translate(15px, 10px);
-    }
+  50% {
+    transform: translate(0px, 5px);
+  }
 
-    50% {
-      transform: translate(20px, 40px);
-    }
+  80% {
+    transform: translate(3px, 5px);
+  }
 
-    80% {
-      transform: translate(20px, 25px);
-    }
+  100% {
+    transform: translate(0);
+  }
+}
+@keyframes transform_move_2 {
+  0% {
+    transform: translate(10px, 20px);
+  }
 
-    100% {
-      transform: translate(30px, 30px);
-    }
+  30% {
+    transform: translate(15px, 10px);
+  }
+
+  50% {
+    transform: translate(10px, 20px);
+  }
+
+  80% {
+    transform: translate(10px, 12px);
+  }
+
+  100% {
+    transform: translate(10px, 20px);
+  }
+}
+@keyframes transform_move_3 {
+  0% {
+    transform: translate(0);
+  }
+
+  30% {
+    transform: translate(8px, -10px);
+  }
+
+  50% {
+    transform: translate(6px, -4px);
+  }
+
+  80% {
+    transform: translate(5px, 3px);
+  }
+
+  100% {
+    transform: translate(0);
+  }
+}
+
+@keyframes transform_move_4 {
+  0% {
+    transform: translate(0);
+  }
+
+  30% {
+    transform: translate(7px, 2px);
+  }
+
+  40% {
+    transform: translate(4px, 0px);
+  }
+
+  50% {
+    transform: translate(3px, -4px);
+  }
+
+  80% {
+    transform: translate(8px, 5px);
+  }
+
+  100% {
+    transform: translate(0);
   }
 }
